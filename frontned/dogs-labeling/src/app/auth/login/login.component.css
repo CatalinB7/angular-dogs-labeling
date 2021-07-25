@@ -1,0 +1,48 @@
+.login-div {
+    width: 500px;
+    display: column;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: center; */
+    flex-wrap: wrap;
+    position: absolute;
+    top:20%;
+    left:0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    height: 400px;
+
+}
+
+mat-form-field {
+    width: 100%;
+    font-size: 1.2rem;
+}
+
+form {
+    align-self: center;
+}
+
+h1 {
+    top: 0;
+    margin-top: 5vh;
+    margin-bottom: 10vh;
+    letter-spacing: 3px;
+    font-size: 3rem;
+    align-self: center;
+    text-align: center;
+    color:rgb(30, 40, 51);
+    
+    font-family: 'Open Sans';
+    text-transform: capitalize;
+    font-weight: 800;
+  
+}
+
+button[type=submit] {
+    font-size: 1.4rem;
+    margin-top: 1vh;
+}
