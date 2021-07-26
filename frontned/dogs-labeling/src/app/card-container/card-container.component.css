@@ -1,0 +1,43 @@
+.card-div {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    width: 300px;
+    justify-content: space-evenly;
+    margin-top: 25px;
+    padding: 15px;
+    padding-bottom: 75px;
+    /* background-color: bisque; */
+}
+
+.pref-div {
+    display:flex;
+    flex-wrap: nowrap;
+    /* justify-content: center; */
+    /* background-color: blanchedalmond; */
+    overflow-x: auto;
+    overflow-y: hidden;
+    width: 30px;
+    align-items: center;
+    margin-top: -70px;
+    visibility: hidden;
+    transform: rotate(-90deg);
+    /* transform-origin: left top; */
+}
+
+
+.card-div:hover > .pref-div,
+.card-div:focus-within .pref-div,
+.pref-div:focus {   
+    visibility: visible;
+    transition: all .6s ease-in-out;
+    transform: translateY(75px);
+    
+    transform-origin: center;
+    width: 300px;
+}
+
+img {
+    width: 300px;
+    z-index: -1;
+}

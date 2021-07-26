@@ -1,0 +1,10 @@
+.pics-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* the 300px should come from state class*/
+    grid-gap: 3rem;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    border: double black;
+    padding: 20px;
+}

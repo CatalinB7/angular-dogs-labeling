@@ -12,9 +12,9 @@ export class RegisterSwitchComponent implements OnInit {
     this.router.events.subscribe(event => {
       if(event.constructor.name === "NavigationStart") {
         let route = (event as NavigationStart).url.substring(1);
-        console.log("header event =", (route));
+        // console.log("reg sw route =", (route));
         this.btnText = route == "login" || route == ""? "Register":"Login";
-        console.log("passed = ", this.btnText);
+        // console.log("passed = ", this.btnText);
       }
     });
    }
@@ -23,7 +23,7 @@ export class RegisterSwitchComponent implements OnInit {
   }
 
   switchClicked() {
-    console.log("CLICKED REG", this.btnText);
+    // console.log("CLICKED REG", this.btnText);
     let destination = this.btnText === "Login"? "login" : "register";
     this.router.navigateByUrl(`/${destination}`);
   }

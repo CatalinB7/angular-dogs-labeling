@@ -3,6 +3,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Router, NavigationStart, NavigationEnd  } from '@angular/router';
 import { DataFetchingService } from 'src/app/data-fetching.service';
 import { ErrorModalComponent } from 'src/app/error-modal/error-modal.component';
+import { StateService } from 'src/app/state.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -10,7 +11,7 @@ import { ErrorModalComponent } from 'src/app/error-modal/error-modal.component';
 })
 export class LoginComponent implements OnInit {
   submitBtn = "Login";
-  navBtn = "";
+  subtitle = "Login";
   route = "";
   credentials = {
     username: "",
@@ -18,28 +19,71 @@ export class LoginComponent implements OnInit {
   }
 
   constructor(private router: Router, public dialog: MatDialog,
-    private fetchingService: DataFetchingService) {
-    this.router.events.subscribe(event => {
-      if(event.constructor.name === "NavigationStart") {
-        this.route = (event as NavigationStart).url.substring(1);
-        this.submitBtn = this.route.charAt(0).toUpperCase() + this.route.slice(1);
-        this.submitBtn = this.submitBtn == ""? "Login" : this.submitBtn;
-        this.navBtn = this.route == "/login"? "Register":"Login";
-      }
-    });
+    private fetchingService: DataFetchingService,
+    private state: StateService) {
+      // console.log("CONSTRUCTOR");
+
   }
 
   ngOnInit(): void {
-
+    // console.log("INIT");
+    this.router.events.subscribe(event => {
+      if(event.constructor.name === "NavigationStart") {
+        this.route = (event as NavigationStart).url.substring(1);
+      }
+    });
+    this.subtitle = this.router.url.substring(1).toUpperCase();
+    this.submitBtn = this.subtitle.charAt(0) + this.subtitle.slice(1).toLowerCase();
   }
 
+  ngOnDestroy() {
+    // console.log("DESTROY");
+  }
 
   sendCredentials() {
-    //TODO
-    if(this.credentials.pass.length < 7) {
-      this.dialog.open(ErrorModalComponent, {data: {err: "Password is too short! Length must be greater than 7"}});
-    }
+    
+    if(this.credentials.pass.length < 1) {
+      this.dialogModal("Password is too short! Length must be greater than 7");
+      return
+    } 
+
+      if(this.router.url === "/register") {
+        this.fetchingService.register(this.credentials.username, this.credentials.pass)
+        .subscribe(this.redirectLogin, this.handleErr
+        );
+      }
+      else this.fetchingService.login(this.credentials.username, this.credentials.pass)
+        .subscribe(this.redirectRandomDogs, this.handleErr);
+      
+  }
+
+  redirectLogin = () => {
+    this.router.navigateByUrl(`/login`);
+  }
+
+  redirectRandomDogs = (resp: any) => {
+    this.state.Name = this.credentials.username;
+    this.state.SessionId = resp.id;
+    this.router.navigateByUrl(`/dogs-pages`);
   }
 
 
+  handleErr = (err: any) => {
+    let msg = "Something bad happend!";
+    switch(err.statusText) {
+      case "Conflict":
+        msg = "Username already exists!";
+        break;
+      case "Unauthorized":
+        msg = "Wrong credentials!";
+        break;
+    }
+     this.dialogModal(msg);
+  }
+
+  dialogModal(err: string) {
+    this.dialog.open(ErrorModalComponent, {data: {err}} );
+  }
+
 }
+
