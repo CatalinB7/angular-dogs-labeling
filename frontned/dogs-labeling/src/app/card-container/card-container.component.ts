@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-card-container',
@@ -7,10 +8,13 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CardContainerComponent implements OnInit {
   @Input() link: string = "";
-  categories = ["silly", "adorable", "fluffy", "silly", "adorable", "fluffy"];
-  constructor() { }
+  categories = []; //["silly", "adorable", "fluffy", "silly", "adorable", "fluffy"];
+  constructor(private categoryService: CategoriesService) { }
 
   ngOnInit(): void {
+    this.categoryService.getCategories().subscribe((obs: any) => {
+      this.categories = obs.body.categories;
+    });  
   }
 
 }

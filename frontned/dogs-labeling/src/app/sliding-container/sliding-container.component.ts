@@ -13,4 +13,8 @@ export class SlidingContainerComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  sendPreference(idx: number) {
+    console.log("category = %s, idx = %d", this.categories[0], idx);
+  }
+
 }

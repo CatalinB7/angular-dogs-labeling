@@ -11,7 +11,9 @@ interface IRandomData {
   message: string[];
   status: string;
 }
+
 const baseUrl = 'http://localhost:8080';
+
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',

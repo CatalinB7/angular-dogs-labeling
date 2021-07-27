@@ -19,6 +19,7 @@ div.login-menu ul li {
     margin-left: -40px;
     border: solid black 1px;
     line-height: 2.5rem;
+    list-style-type: none;
   }
   
 .login-menu:hover {
@@ -32,6 +33,14 @@ div.login-menu ul li {
     display: block;
     cursor: pointer;
 }
+
+/* .login-menu ul:hover li {
+    background-color: rgba(0, 89, 255);
+    visibility: visible;
+    opacity: 1;
+    display: block;
+    cursor: pointer;
+} */
 
 .login-menu ul li:hover {
     background-color: rgba(0, 89, 255);

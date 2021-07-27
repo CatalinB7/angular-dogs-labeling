@@ -14,7 +14,7 @@
     display:flex;
     flex-wrap: nowrap;
     /* justify-content: center; */
-    /* background-color: blanchedalmond; */
+    background-color: blanchedalmond;
     overflow-x: auto;
     overflow-y: hidden;
     width: 30px;
@@ -22,6 +22,7 @@
     margin-top: -70px;
     visibility: hidden;
     transform: rotate(-90deg);
+    opacity: 0;
     /* transform-origin: left top; */
 }
 
@@ -32,12 +33,33 @@
     visibility: visible;
     transition: all .6s ease-in-out;
     transform: translateY(75px);
-    
+    opacity: 1;
     transform-origin: center;
     width: 300px;
 }
 
 img {
+    margin: 25px 10px 25px 10px;
+    border: 5px solid wheat;
+    border-radius: 5%;
+    
     width: 300px;
     z-index: -1;
+}
+
+
+::-webkit-scrollbar {
+    width: 12px;
+}
+ 
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    border-radius: 10px;
+}
+ 
+::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.5);
 }

@@ -41,16 +41,15 @@ export class LoginComponent implements OnInit {
   }
 
   sendCredentials() {
-    
-    if(this.credentials.pass.length < 1) {
-      this.dialogModal("Password is too short! Length must be greater than 7");
+    let requiredPassLen = 2;
+    if(this.credentials.pass.length < requiredPassLen) {
+      this.dialogModal(`Password is too short! Length must be greater than ${requiredPassLen}`);
       return
     } 
 
       if(this.router.url === "/register") {
         this.fetchingService.register(this.credentials.username, this.credentials.pass)
-        .subscribe(this.redirectLogin, this.handleErr
-        );
+        .subscribe(this.redirectLogin, this.handleErr);
       }
       else this.fetchingService.login(this.credentials.username, this.credentials.pass)
         .subscribe(this.redirectRandomDogs, this.handleErr);

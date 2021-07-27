@@ -17,6 +17,7 @@ export class ProfileMenuComponent implements OnInit {
   }
 
   logout() {
+    this.state.logout();
     this.router.navigateByUrl(`/login`);
   }
 

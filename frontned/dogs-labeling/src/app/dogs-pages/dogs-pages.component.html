@@ -1,8 +1,10 @@
 <app-logged-in-header></app-logged-in-header>
 
-<button class="form-btn refresh-btn">Other Dogs</button>
+<div class="request-div-container">
+    <button class="btn" (click)="getNewDogs()">Other Dogs</button>
+    <button class="btn" (click)="getNewDogs()">My Categories</button>
+</div>
+
 <div class="pics-container">
-    
-    <!-- <div class="request-div-container"></div> -->
     <app-card-container *ngFor="let link of links" [link]="link"></app-card-container>
 </div>

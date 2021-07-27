@@ -7,6 +7,7 @@ import { LoggedInHeaderComponent } from '../logged-in-header/logged-in-header.co
 import { ProfileMenuComponent } from '../profile-menu/profile-menu.component';
 import { CardContainerComponent } from '../card-container/card-container.component';
 import { SlidingContainerComponent } from '../sliding-container/sliding-container.component';
+import { DisableBtnDirective } from '../disable-btn.directive';
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { SlidingContainerComponent } from '../sliding-container/sliding-containe
     ProfileMenuComponent,
     CardContainerComponent,
     SlidingContainerComponent,
+    DisableBtnDirective,
   ],
   imports: [
     CommonModule,
