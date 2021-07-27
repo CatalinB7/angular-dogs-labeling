@@ -3,27 +3,25 @@
     flex-direction: column;
     flex-wrap: nowrap;
     width: 300px;
-    justify-content: space-evenly;
+    justify-content: center;
     margin-top: 25px;
     padding: 15px;
     padding-bottom: 75px;
-    /* background-color: bisque; */
 }
 
 .pref-div {
     display:flex;
     flex-wrap: nowrap;
     /* justify-content: center; */
-    background-color: blanchedalmond;
+    
     overflow-x: auto;
     overflow-y: hidden;
-    width: 30px;
+    width: 300px;
     align-items: center;
     margin-top: -70px;
     visibility: hidden;
     transform: rotate(-90deg);
     opacity: 0;
-    /* transform-origin: left top; */
 }
 
 
@@ -49,6 +47,7 @@ img {
 
 
 ::-webkit-scrollbar {
+    background-color: blanchedalmond;
     width: 12px;
 }
  

@@ -35,7 +35,7 @@ router.get("/preferences", (req, res) => {
 });
 
 router.delete("/preferences", (req, res) => {
-    //remove link from dictionary by (idx and category) 
+    //remove link from dictionary by (name and category) 
     let id: number;
     let category: string;
     id = parseInt((req.query.id) as string);

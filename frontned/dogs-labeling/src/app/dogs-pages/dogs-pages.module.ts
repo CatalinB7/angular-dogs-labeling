@@ -8,6 +8,7 @@ import { ProfileMenuComponent } from '../profile-menu/profile-menu.component';
 import { CardContainerComponent } from '../card-container/card-container.component';
 import { SlidingContainerComponent } from '../sliding-container/sliding-container.component';
 import { DisableBtnDirective } from '../disable-btn.directive';
+import { JustifyIfNoOverflowDirective } from '../justify-if-no-overflow.directive';
 
 
 @NgModule({
@@ -18,6 +19,7 @@ import { DisableBtnDirective } from '../disable-btn.directive';
     CardContainerComponent,
     SlidingContainerComponent,
     DisableBtnDirective,
+    JustifyIfNoOverflowDirective,
   ],
   imports: [
     CommonModule,

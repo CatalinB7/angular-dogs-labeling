@@ -1,4 +1,5 @@
 <div class="card-div">
     <img src={{link}}>
-    <app-sliding-container class="pref-div" [categories]="categories"></app-sliding-container>
+    <app-sliding-container class="pref-div" appJustifyIfNoOverflow (chosenIndex)="sendPreference($event)"
+        [categories]="categories"></app-sliding-container>
 </div>

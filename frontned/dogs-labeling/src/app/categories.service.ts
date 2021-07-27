@@ -9,7 +9,7 @@ const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
     'Accept': 'application/json'
-  })
+  }),
 };
 
 @Injectable({
@@ -28,6 +28,12 @@ export class CategoriesService {
       },
       observe: 'response'
     })
+  }
+
+  insertInCategory(link: string, category: string) {
+    return this.http.post(`${baseUrl}/preferences`,
+      { id: this.state.SessionId, link, name: this.state.Name, category },
+      {responseType: 'text'});
   }
 
 }

@@ -1,6 +1,4 @@
-    <!-- <ng-container *ngFor="let category of categories"> -->
-        <button appDisableBtn (click)="sendPreference(i)"
-            *ngFor="let category of categories; let i = index" class="btn pref-btn">
-            {{category}}
-        </button>
-    <!-- </ng-container> -->
+    <button appDisableBtn (click)="sendPreference(i)"
+        *ngFor="let category of categories; let i = index" class="btn pref-btn">
+        {{category}}
+    </button>

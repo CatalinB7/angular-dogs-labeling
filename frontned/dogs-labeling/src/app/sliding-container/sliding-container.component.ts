@@ -1,4 +1,5 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { CategoriesService } from '../categories.service';
 
 @Component({
   selector: 'app-sliding-container',
@@ -8,13 +9,15 @@ import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 })
 export class SlidingContainerComponent implements OnInit {
   @Input() categories: string[] = [];
-  constructor() { }
+  @Output() chosenIndex = new EventEmitter<number>();
+  constructor(categoryService: CategoriesService) { }
 
   ngOnInit(): void {
   }
 
   sendPreference(idx: number) {
-    console.log("category = %s, idx = %d", this.categories[0], idx);
+    //console.log("category = %s, idx = %d", this.categories[0], idx);
+    this.chosenIndex.emit(idx);
   }
 
 }
