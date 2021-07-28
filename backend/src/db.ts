@@ -103,7 +103,7 @@ let removeLink = (category: Category, id: number, name: string, link: string) =>
 let insertCategory = (id: number, name: string, category: string) => {
     guard(name, id);
     if (db[name].categories.includes(category)) {
-        throw new CustomError("Category already defined", 401);
+        throw new CustomError("Category already defined", 409);
     }
     db[name].links[category] = [];
     db[name].categories.push(category);
@@ -117,7 +117,7 @@ let modifyCategory = (id: number, name: string, oldCategory: string, newCategory
         throw new CustomError("Old category not defined", 404);
     }
     if (db[name].categories.includes(newCategory)) {
-        throw new CustomError("New category already defined", 404);
+        throw new CustomError("New category already defined", 409);
     }
     db[name].categories = db[name].categories.map(el => {
         if (el === oldCategory)
