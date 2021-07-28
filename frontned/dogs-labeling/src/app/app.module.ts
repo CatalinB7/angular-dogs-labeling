@@ -14,6 +14,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { DataFetchingService } from './data-fetching.service';
 import { HttpClientModule } from '@angular/common/http';
 import { StateService } from './state.service';
+import { CategoryPageModule } from './category-page/category-page.module';
 
 
 function StateServiceFactory() {
@@ -37,7 +38,8 @@ function StateServiceFactory() {
     FormsModule,
     BrowserAnimationsModule,
     MatDialogModule,
-    HttpClientModule
+    HttpClientModule,
+    CategoryPageModule
   ],
   providers: [
     DataFetchingService, {

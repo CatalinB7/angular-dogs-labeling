@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriesService } from '../categories.service';
 
 @Component({
@@ -8,26 +8,37 @@ import { CategoriesService } from '../categories.service';
 })
 export class InsertCategoryComponent implements OnInit {
   visible = false;
-  icon = "add";
+  icon = "add_circle";
   category = "";
+  @Output() added = new EventEmitter<string>();
   constructor(private categorySerice: CategoriesService) { }
 
   ngOnInit(): void {
   }
 
   clickedIcon() {
-    if (this.icon == "add") {
+    if (this.icon == "add_circle") {
       this.icon = "clear";
+    } else {
+      this.icon = "add_circle";
     }
     this.visible = !this.visible;
   }
 
   insertCategory() {
-    
     this.categorySerice.insertCategory(this.category).subscribe(obs => {
-      console.log("obs = ", obs);
-    })
+      if(obs == "OK") {
+        //update UI
+        this.added.emit(this.category);
+        this.category = "";
+      } else {
+        //throw error
+      }
+    });
+    
   }
+
+
 
   setValue(ev: any) {
     this.category = ev.target.value;

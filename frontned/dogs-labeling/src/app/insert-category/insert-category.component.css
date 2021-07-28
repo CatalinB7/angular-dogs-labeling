@@ -9,4 +9,13 @@ div {
 
 mat-card {
     width: 100%;
+    margin-bottom: 20px;
+}
+
+mat-icon {
+    font-size: 2.4rem;
+    margin-bottom: 20px;
+}
+mat-icon:hover {
+    cursor: pointer;
 }

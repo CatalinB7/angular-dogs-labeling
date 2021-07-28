@@ -12,8 +12,8 @@ export class StateService {
   #receivedLinks = [];
   #sessionId = -1;
   #alreadySent: { silly: boolean[], adorable: boolean[] };
-  #routes = ["register", "random_dogs", "silly_dogs", "adorable_dogs"];
-  #loggedOnce = false;
+  // #routes = ["register", "random_dogs", "silly_dogs", "adorable_dogs"];
+  // #loggedOnce = false;
   #categories: string[] = [];
   localStorage: Storage;
 
@@ -29,7 +29,6 @@ export class StateService {
       this.Name = this.localStorage.getItem("name") as string;
       this.SessionId = parseInt(this.localStorage.getItem("sessionId") as string);
     }
-    console.log("INSTANTIATED STATE", this.localStorage.getItem("name"));
     this.#noPics = noPics;
     this.#picWidth = picWidth;
     this.#alreadySent = {
@@ -38,8 +37,6 @@ export class StateService {
     };
 
   }
-
-
 
   get Categories() {
     return this.#categories;
@@ -64,6 +61,23 @@ export class StateService {
     this.localStorage.removeItem("sessionId");
   }
 
+  get NoPics() {
+    return this.#noPics;
+  }
+
+  get PicWidth() {
+    return this.#picWidth;
+  }
+
+  get SessionId() {
+    return this.#sessionId;
+  };
+
+  set SessionId(id: number) {
+    this.localStorage.setItem("sessionId", id.toString());
+    this.#sessionId = id;
+  };
+
   // get LoggedOnce() {
   //     return this.#loggedOnce;
   // }
@@ -72,14 +86,6 @@ export class StateService {
   // set LoggedOnce(val: boolean) {
   //      this.#loggedOnce = val;
   // }
-
-  get NoPics() {
-    return this.#noPics;
-  }
-
-  get PicWidth() {
-    return this.#picWidth;
-  }
 
   // getRoutes() {
   //     return this.#routes;
@@ -111,14 +117,7 @@ export class StateService {
   //     this.#currentPage = value;
   // }
 
-  get SessionId() {
-    return this.#sessionId;
-  };
 
-  set SessionId(id: number) {
-    this.localStorage.setItem("sessionId", id.toString());
-    this.#sessionId = id;
-  };
 
   // setReceivedLinks(links: string[]) {
   //     this.#receivedLinks = links;

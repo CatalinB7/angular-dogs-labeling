@@ -5,6 +5,7 @@ button {
 input {
     margin-top: 5px;
     font-size: larger;
+    margin-left: -45px;
 }
 
 .show-div {
@@ -15,7 +16,9 @@ input {
 .edit-div {
     display: flex;
     justify-content: space-evenly;
-    width: 35%;
+    width: 650px;
+    height: 50px;
+    padding: 20px;
 }
 
 mat-expansion-panel {
@@ -35,3 +38,6 @@ mat-panel-description {
     display: flex;
     justify-content: space-evenly;
 }
+
+/* h4 {
+} */

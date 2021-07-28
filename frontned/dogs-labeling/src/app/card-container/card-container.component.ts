@@ -19,7 +19,7 @@ export class CardContainerComponent implements OnInit {
 
   sendPreference(idx: number) {
     this.categoryService.insertInCategory(this.link, this.categories[idx]).subscribe(obs =>{
-      console.log("obs = ", obs); // nothing to do here
+      //console.log("obs = ", obs); // nothing to do here
     })
   }
 
