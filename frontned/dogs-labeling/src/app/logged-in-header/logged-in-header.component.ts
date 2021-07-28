@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { StateService } from '../state.service';
 
 @Component({
@@ -7,7 +7,7 @@ import { StateService } from '../state.service';
   styleUrls: ['./logged-in-header.component.css']
 })
 export class LoggedInHeaderComponent implements OnInit {
-  title = "Random dogs!"
+  @Input() title = "Random dogs!"
   name = "";
   constructor(private state: StateService) { }
 

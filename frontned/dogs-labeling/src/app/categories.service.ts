@@ -31,9 +31,17 @@ export class CategoriesService {
   }
 
   insertInCategory(link: string, category: string) {
+    //saves a link associated with a category
     return this.http.post(`${baseUrl}/preferences`,
       { id: this.state.SessionId, link, name: this.state.Name, category },
       {responseType: 'text'});
+  }
+
+  insertCategory(category: string) {
+    console.log("inserting cate", category);
+    return this.http.post(`${baseUrl}/category`,
+    { id: this.state.SessionId, name: this.state.Name, category },
+    {responseType: 'text'});
   }
 
 }

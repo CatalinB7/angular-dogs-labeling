@@ -48,21 +48,3 @@ function StateServiceFactory() {
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-
-
-/*
-
-Components:
-  login
-  register
-  mainDisplayPage
-  divCard
-
-
-
-  Services:
-  http fetching
-
-
-
-*/

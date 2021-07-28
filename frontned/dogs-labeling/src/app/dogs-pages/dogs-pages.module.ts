@@ -9,6 +9,8 @@ import { CardContainerComponent } from '../card-container/card-container.compone
 import { SlidingContainerComponent } from '../sliding-container/sliding-container.component';
 import { DisableBtnDirective } from '../disable-btn.directive';
 import { JustifyIfNoOverflowDirective } from '../justify-if-no-overflow.directive';
+import { MatButtonModule } from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
 
 
 @NgModule({
@@ -23,7 +25,10 @@ import { JustifyIfNoOverflowDirective } from '../justify-if-no-overflow.directiv
   ],
   imports: [
     CommonModule,
-    DogsPagesRoutingModule
-  ]
+    DogsPagesRoutingModule,
+    MatButtonModule,
+    MatMenuModule,
+  ],
+  exports: [LoggedInHeaderComponent]
 })
 export class DogsPagesModule { }

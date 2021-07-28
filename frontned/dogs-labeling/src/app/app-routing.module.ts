@@ -6,8 +6,8 @@ const routes: Routes = [
   { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'register', component: LoginComponent },
-  // { path: 'random_dogs', component: RandomDogPageComponent },
   { path: 'dogs-pages', loadChildren: () => import('./dogs-pages/dogs-pages.module').then(m => m.DogsPagesModule) },
+  { path: 'categories', loadChildren: () => import('./categories/categories.module').then(m => m.CategoriesModule) },
 
 ];
 

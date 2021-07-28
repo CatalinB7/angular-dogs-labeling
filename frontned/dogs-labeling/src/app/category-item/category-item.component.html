@@ -1,0 +1,24 @@
+
+
+<mat-expansion-panel>
+    <mat-expansion-panel-header>
+        <mat-panel-title>
+            {{category}}
+        </mat-panel-title>
+        <mat-panel-description>
+            <button mat-button>Go to category</button>
+            <mat-divider [vertical]="true"></mat-divider>
+            <button mat-button>Delete</button>
+        </mat-panel-description>
+    </mat-expansion-panel-header>
+    <div class="show-div">
+        <div class="edit-div">
+            <h4>Edit your name's category:</h4>
+            <input matInput placeholder="Edit Category" value={{category}}>
+            <button mat-button>Edit!</button>
+            <!-- <mat-icon>favorite</mat-icon> -->
+        </div>
+    
+    
+</div>
+</mat-expansion-panel>

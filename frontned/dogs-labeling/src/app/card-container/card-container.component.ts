@@ -18,10 +18,8 @@ export class CardContainerComponent implements OnInit {
   }
 
   sendPreference(idx: number) {
-    //in fact nothing needed to be transmited to parent since it already got the right link
-    console.log("parent idx = ", idx);
     this.categoryService.insertInCategory(this.link, this.categories[idx]).subscribe(obs =>{
-      console.log("obs = ", obs);
+      console.log("obs = ", obs); // nothing to do here
     })
   }
 

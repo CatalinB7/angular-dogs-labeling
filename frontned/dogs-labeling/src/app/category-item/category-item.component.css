@@ -1,0 +1,37 @@
+button {
+    background-color:beige;
+}
+
+input {
+    margin-top: 5px;
+    font-size: larger;
+}
+
+.show-div {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.edit-div {
+    display: flex;
+    justify-content: space-evenly;
+    width: 35%;
+}
+
+mat-expansion-panel {
+    width: 100%;
+}
+
+mat-panel-title {
+    width: 10%;
+    display: flex;
+    justify-content: center;
+    font-weight: 700;
+    font-size: larger;
+    align-items: center;
+}
+
+mat-panel-description {
+    display: flex;
+    justify-content: space-evenly;
+}

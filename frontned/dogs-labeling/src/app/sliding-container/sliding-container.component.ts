@@ -10,7 +10,7 @@ import { CategoriesService } from '../categories.service';
 export class SlidingContainerComponent implements OnInit {
   @Input() categories: string[] = [];
   @Output() chosenIndex = new EventEmitter<number>();
-  constructor(categoryService: CategoriesService) { }
+  constructor() { }
 
   ngOnInit(): void {
   }

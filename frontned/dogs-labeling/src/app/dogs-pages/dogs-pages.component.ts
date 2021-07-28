@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { DataFetchingService } from '../data-fetching.service';
 import { StateService } from '../state.service';
 
@@ -11,7 +12,8 @@ export class DogsPagesComponent implements OnInit {
   name = "";
   links = [];
   constructor(private state: StateService, 
-    private fetchingService: DataFetchingService) { }
+    private fetchingService: DataFetchingService,
+    private router: Router) { }
 
   ngOnInit(): void {
     this.name = this.state.Name;
@@ -22,6 +24,10 @@ export class DogsPagesComponent implements OnInit {
   getNewDogs() {
     this.fetchingService.getRandomData(this.state.NoPics)
     .subscribe((resp: any) => this.links = resp.message);
+  }
+
+  goToCategories() {
+    this.router.navigateByUrl(`/categories`);
   }
 
 }
