@@ -51,4 +51,9 @@ export class CategoriesService {
     return this.http.put(`${baseUrl}/category?${new URLSearchParams(params)}`, {}, {responseType: 'text'});
   }
 
+  getLinksByCategory(category: string) {
+    let params = { id: this.state.SessionId.toString(), name: this.state.Name, category };
+    return this.http.get(`${baseUrl}/preferences?${new URLSearchParams(params)}`, {responseType: 'text'});
+  }
+
 }

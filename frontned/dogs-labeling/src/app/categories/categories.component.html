@@ -1,4 +1,5 @@
 <app-logged-in-header [title]="title"></app-logged-in-header>
+<!-- TODO CREATE GO TO RANDOM DOGS BUTTON -->
 <div class="div-container">
     <app-insert-category (added)="insertCategory($event)"></app-insert-category>
     <app-category-item *ngFor="let category of categories" [category]="category"

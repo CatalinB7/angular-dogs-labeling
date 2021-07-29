@@ -1,5 +1,6 @@
 import { Component, Input, OnInit, Output } from '@angular/core';
 import { EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 import { CategoriesService } from '../categories.service';
 
 @Component({
@@ -12,7 +13,8 @@ export class CategoryItemComponent implements OnInit {
   @Output() deleted = new EventEmitter<string>();
   @Output() renamed = new EventEmitter<[string, string]>();
   newCat = "";
-  constructor(private categorySerice: CategoriesService) { }
+  constructor(private categorySerice: CategoriesService,
+    private router: Router) { }
 
   ngOnInit(): void {
   }
@@ -41,10 +43,13 @@ export class CategoryItemComponent implements OnInit {
       } else {
         //throw error
       }
-  }, err => {
-      
-  });
+    }, err => {
+      //HANDLE ERROR
+    });
+  }
 
+  goToCategory() {
+    this.router.navigateByUrl(`/view-category/${this.category}`);
   }
 
 }

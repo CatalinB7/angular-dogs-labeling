@@ -34,3 +34,36 @@ h1 {
     font-weight: 700;
     letter-spacing: 0.1rem;
 }
+
+.card-div:hover .trashcan,
+.card-div:focus-within .trashcan {
+    visibility: visible;
+    transition: all .5s ease-in-out;
+    /* transform: translateY(105px) !important; */
+    animation: rotation 1.25s linear;
+    animation-fill-mode: forwards;
+}
+
+
+
+@keyframes rotation {
+    33% {
+        transform: translateY(0px);
+    }
+    67% {
+        transform-origin: center 0px;
+        transform: rotate(30deg) translateY(0px);
+    }
+    78% {
+        transform-origin: center 0px;
+        transform: rotate(0deg) translateY(0px);
+    }
+    89% {
+        transform-origin: center 0px;
+        transform: rotate(-30deg) translateY(0px);
+    }
+      100% {
+        transform-origin: center 0px;
+        transform: rotate(0deg) translateY(0px);
+    }
+}

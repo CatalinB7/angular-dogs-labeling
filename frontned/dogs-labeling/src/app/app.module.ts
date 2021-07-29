@@ -41,6 +41,8 @@ function StateServiceFactory() {
     HttpClientModule,
     CategoryPageModule
   ],
+  exports: [
+  ],
   providers: [
     DataFetchingService, {
       provide: StateService,

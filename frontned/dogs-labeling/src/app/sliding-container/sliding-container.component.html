@@ -1,4 +1,6 @@
-    <button appDisableBtn (click)="sendPreference(i)"
-        *ngFor="let category of categories; let i = index" class="btn pref-btn">
-        {{category}}
-    </button>
+<button *ngIf="showTrashcan" class="iconify trashcan" data-icon="octicon-trashcan" data-inline="false" (click)="deletePic()"></button>
+
+<button appDisableBtn (click)="sendPreference(i)" *ngFor="let category of categories; let i = index"
+    class="btn pref-btn">
+    {{category}}
+</button>

@@ -32,7 +32,7 @@ import { FormsModule } from '@angular/forms';
     MatInputModule,
     MatIconModule,
     MatCardModule,
-    FormsModule
+    FormsModule,
   ]
 })
 export class CategoriesModule { }

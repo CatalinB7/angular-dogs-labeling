@@ -11,6 +11,7 @@ import { DisableBtnDirective } from '../disable-btn.directive';
 import { JustifyIfNoOverflowDirective } from '../justify-if-no-overflow.directive';
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
+import { PicContainerComponent } from '../pic-container/pic-container.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { MatMenuModule } from '@angular/material/menu';
     SlidingContainerComponent,
     DisableBtnDirective,
     JustifyIfNoOverflowDirective,
+    PicContainerComponent,
   ],
   imports: [
     CommonModule,
@@ -29,6 +31,6 @@ import { MatMenuModule } from '@angular/material/menu';
     MatButtonModule,
     MatMenuModule,
   ],
-  exports: [LoggedInHeaderComponent]
+  exports: [LoggedInHeaderComponent, CardContainerComponent, DogsPagesComponent, PicContainerComponent]
 })
 export class DogsPagesModule { }

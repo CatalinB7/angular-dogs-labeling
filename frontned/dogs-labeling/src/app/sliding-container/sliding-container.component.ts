@@ -9,15 +9,22 @@ import { CategoriesService } from '../categories.service';
 })
 export class SlidingContainerComponent implements OnInit {
   @Input() categories: string[] = [];
+  @Input() showTrashcan = false;
   @Output() chosenIndex = new EventEmitter<number>();
+  @Output() toDelete = new EventEmitter<boolean>();
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
   sendPreference(idx: number) {
     //console.log("category = %s, idx = %d", this.categories[0], idx);
     this.chosenIndex.emit(idx);
+  }
+
+  deletePic() {
+    this.toDelete.emit(true);
   }
 
 }
