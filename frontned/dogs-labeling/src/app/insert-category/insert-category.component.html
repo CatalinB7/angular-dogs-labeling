@@ -1,5 +1,5 @@
 <div>
-    <mat-icon (click)="clickedIcon()" >{{icon}}</mat-icon>
+    <mat-icon (click)="clickedIcon()">{{icon}}</mat-icon>
     <mat-card *ngIf="visible">
         <h4>Insert a new category:</h4>
         <input matInput placeholder="New Category" [value]="category" (change)="setValue($event)">

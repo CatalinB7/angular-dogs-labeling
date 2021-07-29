@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
-import { CategoriesService } from '../categories.service';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-sliding-container',
@@ -18,7 +17,6 @@ export class SlidingContainerComponent implements OnInit {
   }
 
   sendPreference(idx: number) {
-    //console.log("category = %s, idx = %d", this.categories[0], idx);
     this.chosenIndex.emit(idx);
   }
 

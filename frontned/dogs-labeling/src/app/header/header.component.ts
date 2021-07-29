@@ -8,13 +8,12 @@ import { NavigationStart, Router } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
   title = "Dogs are awesome!";
-  passedBtnText = "ceva";
-  constructor(private router: Router) {
+  constructor(private _router: Router) {
 
   }
 
   ngOnInit(): void {
-    this.router.events.subscribe(event => {
+    this._router.events.subscribe(event => {
       if (event.constructor.name === "NavigationStart") {
         let route = (event as NavigationStart).url.substring(1);
         if (route == "login" || route == "register") {
@@ -29,7 +28,7 @@ export class HeaderComponent implements OnInit {
   }
 
   getLoginBtnDisplay() {
-    if(this.router.url.includes("login") || this.router.url.includes("register"))
+    if (this._router.url.includes("login") || this._router.url.includes("register"))
       return "grid";
     return "none";
   }

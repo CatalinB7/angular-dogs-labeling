@@ -1,13 +1,5 @@
-<!-- <div class="login-menu"> <span id="menu-name">{{name}}</span>
-    <ul>
-        <li>Account</li>
-        <li (click)="logout()">Logout</li>
-    </ul>
-</div> -->
-
-
-    <button class="login-menu" mat-button [matMenuTriggerFor]="menu">{{name}}</button>
-  <mat-menu #menu="matMenu">
-    <button mat-menu-item>Account</button>
-    <button (click)="logout()" mat-menu-item>Logout</button>
-  </mat-menu>
+<button class="login-menu" mat-button [matMenuTriggerFor]="menu">{{name}}</button>
+<mat-menu #menu="matMenu">
+  <button mat-menu-item>Account</button>
+  <button (click)="logout()" mat-menu-item>Logout</button>
+</mat-menu>

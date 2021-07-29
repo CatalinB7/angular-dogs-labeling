@@ -14,35 +14,34 @@ import { StateService } from '../state.service';
 export class CategoryPageComponent implements OnInit {
   category = "";
   title = "";
-  links: string [] = [];
 
   pageSize = 0;
-  noItems = 100;
+  noItems = 0;
   pageIndex = 0;
-  len = 5;
 
+  //slice the links array with these values
   picsFrom = 0;
   picsUntil = 0;
 
   links$: Observable<string[]> = this._state.deletedCard$.pipe(
-  startWith(void 0),
-  switchMap(() => this._categoriesService.getLinksByCategory(this.category)),
-  map(obs => JSON.parse(obs).links ?? []),
-  map(links => {
-      this.noItems = links.length; 
+    startWith(void 0),
+    switchMap(() => this._categoriesService.getLinksByCategory(this.category)),
+    map(obs => JSON.parse(obs).links ?? []),
+    map(links => {
+      this.noItems = links.length;
       return links.slice(this.picsFrom, this.picsUntil);
     })
-);
+  );
 
 
   @Input() picDeleted = false;
 
-  constructor(private router: Router,
+  constructor(private _router: Router,
     private _categoriesService: CategoriesService,
     private _state: StateService) { }
 
   ngOnInit(): void {
-    this.category = this.router.url.split("/").pop() as string;
+    this.category = this._router.url.split("/").pop() as string;
     this.title = `These are your ${this.category} dogs`;
     this.pageSize = this._state.noPics;
     this.picsUntil = this._state.noPics;

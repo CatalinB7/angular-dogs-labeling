@@ -37,7 +37,7 @@ DB contains {
     idToSet which maps a name to set of categories
     idToLinks which maps a name to array of links
 }
-
+each user starts with 2 categories silly and adorable
 user receives sessionId at login and each request carries the sessionId
 
 */
@@ -97,6 +97,9 @@ let addLink = (category: Category, id: number, link: string, name: string) => {
 
 let removeLink = (category: Category, id: number, name: string, link: string) => {
     guard(name, id);
+    if (!db[name].categories.includes(category)) {
+        throw new CustomError("Category not found!", 404);
+    }
     db[name].links[category] = db[name].links[category].filter(elem => elem != link);
 }
 

@@ -27,7 +27,7 @@ export class CategoryItemComponent implements OnInit {
         //throw error
       }
     }, err => {
-      
+      //throw error
     });
   }
 
@@ -42,7 +42,7 @@ export class CategoryItemComponent implements OnInit {
         //throw error
       }
     }, err => {
-      //HANDLE ERROR
+      //throw error
     });
   }
 

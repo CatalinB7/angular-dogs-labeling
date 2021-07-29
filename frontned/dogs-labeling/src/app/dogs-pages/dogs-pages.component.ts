@@ -11,23 +11,22 @@ import { StateService } from '../state.service';
 export class DogsPagesComponent implements OnInit {
   name = "";
   links = [];
-  constructor(private state: StateService, 
-    private fetchingService: DataFetchingService,
-    private router: Router) { }
+  constructor(private _state: StateService, 
+    private _fetchingService: DataFetchingService,
+    private _router: Router) { }
 
   ngOnInit(): void {
-    this.name = this.state.Name;
-    // console.log("name = ", this.name);
+    this.name = this._state.Name;
     this.getNewDogs();
   }
 
   getNewDogs() {
-    this.fetchingService.getRandomData(this.state.NoPics)
+    this._fetchingService.getRandomData(this._state.NoPics)
     .subscribe((resp: any) => this.links = resp.message);
   }
 
   goToCategories() {
-    this.router.navigateByUrl(`/categories`);
+    this._router.navigateByUrl(`/categories`);
   }
 
 }

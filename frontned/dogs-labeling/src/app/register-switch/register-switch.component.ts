@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavigationStart, Router } from '@angular/router';
 
 @Component({
@@ -12,9 +12,7 @@ export class RegisterSwitchComponent implements OnInit {
     this.router.events.subscribe(event => {
       if(event.constructor.name === "NavigationStart") {
         let route = (event as NavigationStart).url.substring(1);
-        // console.log("reg sw route =", (route));
         this.btnText = route == "login" || route == ""? "Register":"Login";
-        // console.log("passed = ", this.btnText);
       }
     });
    }
@@ -23,7 +21,6 @@ export class RegisterSwitchComponent implements OnInit {
   }
 
   switchClicked() {
-    // console.log("CLICKED REG", this.btnText);
     let destination = this.btnText === "Login"? "login" : "register";
     this.router.navigateByUrl(`/${destination}`);
   }

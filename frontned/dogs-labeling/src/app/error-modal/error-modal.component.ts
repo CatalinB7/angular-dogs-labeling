@@ -1,5 +1,5 @@
 import { Component, Inject, Input, OnInit } from '@angular/core';
-import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-error-modal',
@@ -8,6 +8,6 @@ import {MatDialog, MAT_DIALOG_DATA} from '@angular/material/dialog';
 })
 export class ErrorModalComponent {
   @Input() displayErr = false;
-  constructor(@Inject(MAT_DIALOG_DATA) public data: {err: string}) { }
+  constructor(@Inject(MAT_DIALOG_DATA) public data: { err: string }) { }
 
 }

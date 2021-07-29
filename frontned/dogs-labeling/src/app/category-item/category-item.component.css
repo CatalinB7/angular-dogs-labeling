@@ -6,7 +6,7 @@ button {
 input {
     margin-top: 5px;
     font-size: larger;
-    margin-left: -45px;
+    margin-left: 0px;
 }
 
 .show-div {
@@ -39,6 +39,3 @@ mat-panel-description {
     display: flex;
     justify-content: space-evenly;
 }
-
-/* h4 {
-} */

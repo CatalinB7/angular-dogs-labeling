@@ -3,10 +3,6 @@ import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import {HttpParams} from "@angular/common/http";
 
-// const options = term ?
-// { params: new HttpParams().set('name', term) } : {};
-
-
 interface IRandomData {
   message: string[];
   status: string;

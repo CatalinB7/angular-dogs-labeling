@@ -10,7 +10,7 @@ import { StateService } from '../state.service';
 })
 export class PicContainerComponent implements OnInit {
 
-  @Input() links: string[] | null = [];
+  @Input() links: string[] | null = []; //following piece of code complains if i remove null type: <app-pic-container [links]="links$ | async" 
   @Input() currentCategory = "";
 
   constructor(private router: Router,
@@ -29,7 +29,7 @@ export class PicContainerComponent implements OnInit {
       this.router.navigateByUrl(`/dogs-pages`);
     else {
       //get data here or tell the parent the child needs new data?
-      this._fetchingService.getRandomData(this._state.noPics).subscribe( (obs: any) => {
+      this._fetchingService.getRandomData(this._state.noPics).subscribe((obs: any) => {
         this.links = obs.message;
       })
     }

@@ -6,15 +6,11 @@ import { Subject } from 'rxjs';
 })
 export class StateService {
   static instantiated = false;
-  #currentPage = 1;
   #name: string = "";
   #noPics: number;
   #picWidth: number;
-  #receivedLinks = [];
   #sessionId = -1;
   #alreadySent: { silly: boolean[], adorable: boolean[] };
-  // #routes = ["register", "random_dogs", "silly_dogs", "adorable_dogs"];
-  // #loggedOnce = false;
   #categories: string[] = [];
   localStorage: Storage;
 
@@ -40,9 +36,7 @@ export class StateService {
     };
 
   }
-
   
-
   get Categories() {
     return this.#categories;
   }
@@ -82,73 +76,5 @@ export class StateService {
     this.localStorage.setItem("sessionId", id.toString());
     this.#sessionId = id;
   };
-
-  // get LoggedOnce() {
-  //     return this.#loggedOnce;
-  // }
-
-
-  // set LoggedOnce(val: boolean) {
-  //      this.#loggedOnce = val;
-  // }
-
-  // getRoutes() {
-  //     return this.#routes;
-  // }
-
-  // addRoute(newRoute: string) {
-  //     this.#routes.push(newRoute);
-  // }
-
-  // increasePage() {
-  //     if (this.#currentPage === Math.ceil(this.#receivedLinks.length / this.#noPics))
-  //         return;
-  //     this.#currentPage++;
-  //     if (this.#currentPage > Math.floor(this.#receivedLinks.length / this.#noPics))
-  //         this.#currentPage = Math.floor(this.#receivedLinks.length / this.#noPics) + 1;
-  // }
-
-  // decreasePage() {
-  //     this.#currentPage--;
-  //     if (this.#currentPage < 1)
-  //         this.#currentPage = 1;
-  // }
-
-  // getCurrentPage() {
-  //     return this.#currentPage;
-  // }
-
-  // setCurrentPage(value: number) {
-  //     this.#currentPage = value;
-  // }
-
-
-
-  // setReceivedLinks(links: string[]) {
-  //     this.#receivedLinks = links;
-  // }
-
-  // getReceivedLinks() {
-  //     return this.#receivedLinks;
-  // }
-
-  // getAlreadySent() {
-  //     return this.#alreadySent;
-  // }
-
-  // resetAlreadySent() {
-  //     this.#categories.forEach(cat => {
-  //         this.#alreadySent[cat] = new Array(this.#noPics).fill(false);
-  //     })
-  // }
-
-  // setAlreadySent(text: string, idx: number) {
-  //     this.#alreadySent[text][idx] = true;
-  // }
-
-  // appendCategory(netCat: string) {
-  //     this.#alreadySent[netCat] = new Array(this.#noPics).fill(false);
-  // }
-
 
 }

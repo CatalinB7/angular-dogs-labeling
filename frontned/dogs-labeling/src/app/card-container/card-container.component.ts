@@ -12,7 +12,7 @@ export class CardContainerComponent implements OnInit, OnChanges {
   @Input() currentCategory = "";
 
   showTrashcan = false;
-  categories =[]; //["silly", "adorable", "fluffy", "silly", "adorable", "fluffy"];
+  categories = [];
   constructor(private _categoryService: CategoriesService,
     private _state: StateService) { }
 
@@ -20,16 +20,15 @@ export class CardContainerComponent implements OnInit, OnChanges {
     this._categoryService.getCategories().subscribe((obs: any) => {
       this.categories = obs.body.categories;
       this.filterCategories();
-    });  
+    });
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    if(this.currentCategory) {
+    if (this.currentCategory) {
       this.filterCategories();
       this.showTrashcan = true;
     }
   }
-
 
   filterCategories() {
     this.categories = this.categories.filter(el => el != this.currentCategory);
@@ -42,7 +41,7 @@ export class CardContainerComponent implements OnInit, OnChanges {
   }
 
   removeLink(del: boolean) {
-    if(del) {
+    if (del) {
       this._categoryService.removeLink(this.currentCategory, this.link).subscribe(obs => {
         //update ui if succesful
         this._state.deletedCard$.next();
@@ -51,5 +50,4 @@ export class CardContainerComponent implements OnInit, OnChanges {
       });
     }
   }
-
 }
