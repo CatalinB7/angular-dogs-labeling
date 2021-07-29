@@ -12,6 +12,7 @@ import { JustifyIfNoOverflowDirective } from '../justify-if-no-overflow.directiv
 import { MatButtonModule } from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { PicContainerComponent } from '../pic-container/pic-container.component';
+import { MatIcon, MatIconModule } from '@angular/material/icon';
 
 
 @NgModule({
@@ -30,6 +31,7 @@ import { PicContainerComponent } from '../pic-container/pic-container.component'
     DogsPagesRoutingModule,
     MatButtonModule,
     MatMenuModule,
+    MatIconModule,
   ],
   exports: [LoggedInHeaderComponent, CardContainerComponent, DogsPagesComponent, PicContainerComponent]
 })

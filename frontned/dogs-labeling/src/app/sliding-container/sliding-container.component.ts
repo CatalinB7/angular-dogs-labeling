@@ -15,7 +15,6 @@ export class SlidingContainerComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
-    
   }
 
   sendPreference(idx: number) {
@@ -24,6 +23,7 @@ export class SlidingContainerComponent implements OnInit {
   }
 
   deletePic() {
+    console.log("u just ciieckd me");
     this.toDelete.emit(true);
   }
 

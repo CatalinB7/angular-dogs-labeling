@@ -1,4 +1,5 @@
-<button *ngIf="showTrashcan" class="iconify trashcan" data-icon="octicon-trashcan" data-inline="false" (click)="deletePic()"></button>
+    <mat-icon class="trashcan" *ngIf="showTrashcan" (click)="deletePic()">delete</mat-icon>
+    
 
 <button appDisableBtn (click)="sendPreference(i)" *ngFor="let category of categories; let i = index"
     class="btn pref-btn">

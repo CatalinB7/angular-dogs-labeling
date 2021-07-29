@@ -24,7 +24,6 @@ export class CategoryItemComponent implements OnInit {
     this.categorySerice.deleteCategory(this.category).subscribe(obs => {
       if(obs == "OK") {
         this.deleted.emit(this.category);
-        //update UI
       } else {
         //throw error
       }

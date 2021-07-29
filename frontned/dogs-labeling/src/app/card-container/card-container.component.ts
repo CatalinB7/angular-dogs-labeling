@@ -22,7 +22,7 @@ export class CardContainerComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    console.log("my changes are ", changes, this.currentCategory);
+    //console.log("my changes are ", changes, this.currentCategory);
     if(this.currentCategory) {
       this.filterCategories();
       this.showTrashcan = true;
@@ -41,7 +41,7 @@ export class CardContainerComponent implements OnInit, OnChanges {
 
   removeLink(del: boolean) {
     if(del) {
-      
+      console.log("should delete", this.link);
     }
   }
 
