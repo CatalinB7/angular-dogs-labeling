@@ -1,0 +1,13 @@
+
+.header-div {
+    display: grid;
+    grid-template-columns: 1 fr 1fr;
+    grid-column-gap: 5px;
+    justify-items: center;
+}
+
+.header-div {
+    margin-left: auto;
+    margin-right: 30px;
+}
+

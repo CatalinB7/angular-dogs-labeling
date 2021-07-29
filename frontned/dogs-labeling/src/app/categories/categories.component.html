@@ -1,0 +1,9 @@
+<app-logged-in-header [title]="title"></app-logged-in-header>
+
+<button class="btn" mat-button (click)="goToRandomDogs()"> Other dogs</button>
+
+<div class="div-container">
+    <app-insert-category (added)="insertCategory($event)"></app-insert-category>
+    <app-category-item *ngFor="let category of categories" [category]="category"
+    (deleted)="removeCategory($event)" (renamed)="renameCategory($event)"></app-category-item>
+</div>

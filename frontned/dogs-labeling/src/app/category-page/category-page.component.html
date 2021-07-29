@@ -1,0 +1,12 @@
+<app-logged-in-header [title]="title"></app-logged-in-header>
+
+<app-pic-container [links]="links$ | async" [currentCategory]="category" ></app-pic-container>
+
+<mat-paginator class="paginator" [length]="noItems"
+              [pageSize]="pageSize"
+              (page)="handlePage($event)"
+              [pageIndex]="pageIndex"
+              aria-label="Select page"
+              >
+</mat-paginator>
+

@@ -1,0 +1,17 @@
+<div class="login-div">
+  <h1>{{subtitle}}!</h1>
+  <form #form="ngForm" (submit)="sendCredentials()">
+    <mat-card-content>
+
+      <mat-form-field>
+        <input matInput placeholder="Username" type="text" name="username" required [(ngModel)]="credentials.username">
+      </mat-form-field>
+      <mat-form-field>
+        <input matInput placeholder="Password" type="password" name="password" required [(ngModel)]="credentials.pass">
+      </mat-form-field>
+      <mat-card-actions>
+        <button [disabled]="form.invalid" type="submit" mat-button color="primary">{{submitBtn}}</button>
+      </mat-card-actions>
+    </mat-card-content>
+  </form>
+</div>
