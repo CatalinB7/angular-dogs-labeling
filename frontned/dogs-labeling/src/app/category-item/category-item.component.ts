@@ -20,7 +20,6 @@ export class CategoryItemComponent implements OnInit {
   }
 
   deleteCategory() {
-    console.log("should delete", this.category);
     this.categorySerice.deleteCategory(this.category).subscribe(obs => {
       if(obs == "OK") {
         this.deleted.emit(this.category);

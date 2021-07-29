@@ -4,7 +4,8 @@ import { CategoryPageComponent } from './category-page.component';
 import { CategoryPageRoutingModule } from './category-page-routing.module';
 import { DogsPagesModule } from '../dogs-pages/dogs-pages.module';
 
-
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,8 @@ import { DogsPagesModule } from '../dogs-pages/dogs-pages.module';
     CommonModule,
     CategoryPageRoutingModule,
     DogsPagesModule,
+    MatPaginatorModule,
+    MatTableModule 
   ]
 })
 export class CategoryPageModule { }

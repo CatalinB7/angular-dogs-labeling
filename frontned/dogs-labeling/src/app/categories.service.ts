@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { HttpHeaders } from '@angular/common/http';
 import { StateService } from './state.service';
+import { Observable } from 'rxjs';
 
 const baseUrl = 'http://localhost:8080';
 
@@ -21,7 +22,7 @@ export class CategoriesService {
     private state: StateService) { }
 
   getCategories() {
-    return this.http.get(`${baseUrl}/category`, {
+    return this.http.get<{categories: string[]}>(`${baseUrl}/category`, {
       params: {
         name: this.state.Name,
         id: this.state.SessionId
@@ -51,9 +52,17 @@ export class CategoriesService {
     return this.http.put(`${baseUrl}/category?${new URLSearchParams(params)}`, {}, {responseType: 'text'});
   }
 
-  getLinksByCategory(category: string) {
+  getLinksByCategory (category: string) {
+    const httpOptions = {
+      headers: new HttpHeaders({responseType: 'text'})
+    };
     let params = { id: this.state.SessionId.toString(), name: this.state.Name, category };
-    return this.http.get(`${baseUrl}/preferences?${new URLSearchParams(params)}`, {responseType: 'text'});
+    return this.http.get (`${baseUrl}/preferences?${new URLSearchParams(params)}`, {responseType: 'text'});
+  }
+
+  removeLink(category: string, link: string) {
+    let params = { id: this.state.SessionId.toString(), name: this.state.Name, category, link };
+    return this.http.delete(`${baseUrl}/preferences?${new URLSearchParams(params)}`, {responseType: 'text'});
   }
 
 }

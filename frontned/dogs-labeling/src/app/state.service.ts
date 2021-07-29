@@ -1,4 +1,5 @@
 import { Inject, Injectable, Optional } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -16,6 +17,8 @@ export class StateService {
   // #loggedOnce = false;
   #categories: string[] = [];
   localStorage: Storage;
+
+  deletedCard$ = new Subject<void>();
 
   constructor(
     @Inject('noPics') public noPics: number,
@@ -37,6 +40,8 @@ export class StateService {
     };
 
   }
+
+  
 
   get Categories() {
     return this.#categories;

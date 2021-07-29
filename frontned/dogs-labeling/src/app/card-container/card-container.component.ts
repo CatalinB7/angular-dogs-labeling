@@ -1,5 +1,6 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
 import { CategoriesService } from '../categories.service';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-card-container',
@@ -12,36 +13,42 @@ export class CardContainerComponent implements OnInit, OnChanges {
 
   showTrashcan = false;
   categories =[]; //["silly", "adorable", "fluffy", "silly", "adorable", "fluffy"];
-  constructor(private categoryService: CategoriesService) { }
+  constructor(private _categoryService: CategoriesService,
+    private _state: StateService) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe((obs: any) => {
+    this._categoryService.getCategories().subscribe((obs: any) => {
       this.categories = obs.body.categories;
       this.filterCategories();
     });  
   }
 
   ngOnChanges(changes: SimpleChanges): void {
-    //console.log("my changes are ", changes, this.currentCategory);
     if(this.currentCategory) {
       this.filterCategories();
       this.showTrashcan = true;
     }
   }
 
+
   filterCategories() {
     this.categories = this.categories.filter(el => el != this.currentCategory);
   }
 
   sendPreference(idx: number) {
-    this.categoryService.insertInCategory(this.link, this.categories[idx]).subscribe(obs => {
+    this._categoryService.insertInCategory(this.link, this.categories[idx]).subscribe(obs => {
       //TODO DISPLAY ERROR IF NECESSARY
     })
   }
 
   removeLink(del: boolean) {
     if(del) {
-      console.log("should delete", this.link);
+      this._categoryService.removeLink(this.currentCategory, this.link).subscribe(obs => {
+        //update ui if succesful
+        this._state.deletedCard$.next();
+      }, err => {
+        //SHOW ERROR
+      });
     }
   }
 

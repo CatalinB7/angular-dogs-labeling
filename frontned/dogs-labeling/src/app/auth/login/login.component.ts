@@ -21,12 +21,10 @@ export class LoginComponent implements OnInit {
   constructor(private router: Router, public dialog: MatDialog,
     private fetchingService: DataFetchingService,
     private state: StateService) {
-      // console.log("CONSTRUCTOR");
 
   }
 
   ngOnInit(): void {
-    // console.log("INIT");
     this.router.events.subscribe(event => {
       if(event.constructor.name === "NavigationStart") {
         this.route = (event as NavigationStart).url.substring(1);
@@ -37,7 +35,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnDestroy() {
-    // console.log("DESTROY");
   }
 
   sendCredentials() {

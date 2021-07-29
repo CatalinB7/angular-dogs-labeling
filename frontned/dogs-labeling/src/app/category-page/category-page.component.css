@@ -1,0 +1,10 @@
+.paginator {
+    font-size: 2rem;
+    padding: 2rem;
+}
+
+
+/deep/ .mat-paginator-icon{
+    width: 3rem !important;
+    font-size: 4rem;
+  }

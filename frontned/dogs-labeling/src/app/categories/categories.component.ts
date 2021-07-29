@@ -1,5 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs';
+import { map, switchMap} from 'rxjs/operators';
 import { CategoriesService } from '../categories.service';
+import { StateService } from '../state.service';
+
 
 @Component({
   selector: 'app-categories',
@@ -8,13 +13,19 @@ import { CategoriesService } from '../categories.service';
 })
 export class CategoriesComponent implements OnInit {
   categories: string[] = [];
+
   title = "These are your categories!";
-  constructor(private categoryService: CategoriesService) { }
+  constructor(private _categoryService: CategoriesService,
+    private _state: StateService,
+    private _router: Router) { }
 
   ngOnInit(): void {
-    this.categoryService.getCategories().subscribe((obs: any) => {
+    this._categoryService.getCategories().subscribe((obs: any) => {
       this.categories = obs.body.categories;
     });
+    this._state.deletedCard$.subscribe(() => {
+
+    })
   }
 
   removeCategory(category: string) {
@@ -32,6 +43,10 @@ export class CategoriesComponent implements OnInit {
 
   insertCategory(category: string) {
     this.categories.push(category);
+  }
+
+  goToRandomDogs() {
+    this._router.navigateByUrl(`/dogs-pages`);
   }
 
 }

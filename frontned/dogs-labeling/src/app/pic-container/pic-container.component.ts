@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { DataFetchingService } from '../data-fetching.service';
+import { StateService } from '../state.service';
 
 @Component({
   selector: 'app-pic-container',
@@ -8,10 +10,12 @@ import { Router } from '@angular/router';
 })
 export class PicContainerComponent implements OnInit {
 
-  @Input() links: string[] = [];
+  @Input() links: string[] | null = [];
   @Input() currentCategory = "";
 
-  constructor(private router: Router) { }
+  constructor(private router: Router,
+    private _fetchingService: DataFetchingService,
+    private _state: StateService) { }
 
   ngOnInit(): void {
   }
@@ -24,8 +28,10 @@ export class PicContainerComponent implements OnInit {
     if (!this.router.url.includes("dogs-pages"))
       this.router.navigateByUrl(`/dogs-pages`);
     else {
-      //refresh the page or tell the parent the child needs new data?
-      window.location.reload();
+      //get data here or tell the parent the child needs new data?
+      this._fetchingService.getRandomData(this._state.noPics).subscribe( (obs: any) => {
+        this.links = obs.message;
+      })
     }
   }
 

@@ -4,3 +4,11 @@
     width: 90%;
     margin: 5%;
 }
+
+.btn {
+    background-color: bisque;
+    margin-left: 10%;
+    height: 50px;
+    border-radius: 5%;
+    margin-bottom: 0;
+}

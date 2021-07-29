@@ -23,7 +23,7 @@ export class SlidingContainerComponent implements OnInit {
   }
 
   deletePic() {
-    console.log("u just ciieckd me");
+    //emits to parent in order to send a delete event
     this.toDelete.emit(true);
   }
 
